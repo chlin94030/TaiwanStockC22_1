@@ -1,0 +1,28 @@
+{
+  "version": "22.1-fast-bootstrap",
+  "base": "22.0-kostolany-stage-first",
+  "entrypoint": "app.py",
+  "default_history_provider": "AUTO_FAST",
+  "tests": {
+    "pytest": "189 passed",
+    "compileall": "passed"
+  },
+  "data_transport": {
+    "auto_fast": "FINLAB_BULK if ready else YAHOO_FAST",
+    "yahoo_batch_size": 80,
+    "yahoo_turnover": "proxy_typical_price_times_volume_development_only",
+    "official_bulk": "TWSE_TPEX_whole_market_daily_actual_amount",
+    "finmind": "explicit_slow_fallback_only",
+    "silent_finmind_fallback_from_auto_fast": false
+  },
+  "research_guard": {
+    "proxy_confirmation_final": false,
+    "proxy_confirmation_label": "PROXY_DATA_CONFIRMATION_NOT_FINAL"
+  },
+  "limitations": [
+    "live external endpoints were not executed from this container",
+    "Yahoo batch speed is not guaranteed and may be rate-limited",
+    "official bulk endpoints may block some cloud IPs",
+    "transport changes do not establish investment performance"
+  ]
+}

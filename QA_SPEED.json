@@ -1,0 +1,40 @@
+{
+  "version": "21.5-fixed-pool-studio",
+  "scope": "SYNTHETIC_ENGINE_ONLY_NOT_REAL_MARKET_OR_CLOUD_TIMING",
+  "stocks": 60,
+  "benchmark": 1,
+  "sessions": 1450,
+  "input_rows": 88450,
+  "locked_pool": "ADV40 engineering fixture",
+  "candidates": 10,
+  "horizons": [
+    5,
+    20,
+    60
+  ],
+  "data_already_prepared": true,
+  "first_local_factor_build": {
+    "feature_hit": false,
+    "label_hit": true,
+    "strategy_hits": 0,
+    "strategy_misses": 30,
+    "http_requests": 0,
+    "pool_searches": 0,
+    "feature_stage_seconds": 3.464,
+    "total_seconds": 3.867
+  },
+  "one_weight_change": {
+    "feature_hit": true,
+    "label_hit": true,
+    "strategy_hits": 27,
+    "strategy_misses": 3,
+    "http_requests": 0,
+    "pool_searches": 0,
+    "feature_stage_seconds": 0.353,
+    "total_seconds": 0.518
+  },
+  "unchanged_completed_replay_seconds": 0.004,
+  "peak_rss_mb": 119.8,
+  "large_scale_status": "NOT_COMPLETED: 520 equities x 2200 sessions initial preparation exceeded the 120-second outer execution limit.",
+  "browser_status": "NOT_TESTED; Streamlit install blocked by environment network/DNS restrictions."
+}

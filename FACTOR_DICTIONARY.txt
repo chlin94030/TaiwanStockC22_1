@@ -1,0 +1,43 @@
+﻿V21 因子代號對照
+
+liquidity20 = 近20日實際成交金額
+high252 = 接近252日高點程度
+momentum20 = 20日報酬動能
+momentum60 = 60日報酬動能
+momentum120_skip20 = 120日中期動能（略過最近20日）
+trend_eff60 = 60日趨勢行進效率（含方向）
+downside60 = 60日下檔波動防護
+reversal5 = 5日短線反轉
+volume_impulse = 近期成交量增強
+money_flow20 = 收盤位置與成交量的綜合訊號
+breakout20 = 突破前20日高點強度
+pullback20 = 趨勢中拉回位置
+rsi_recovery = RSI修復
+macd_acceleration = MACD柱體改善
+revenue_yoy = 營收年增率（需PIT輸入）
+eps_growth = EPS成長（需PIT輸入）
+foreign_flow20 = 外資20日資金流（需PIT輸入）
+trust_flow20 = 投信20日資金流（需PIT輸入）
+
+ADV100/200/300/500 = 年度滾動平均成交金額排名母池
+MCAP100/200/300/500 = 市值排名母池（另需時點資料）
+
+HISTORICAL_SUPPORT_ONLY = 只有限的歷史支持，不代表可以自動交易
+NOT_SUPPORTED = 未通過固定條件
+INSUFFICIENT_EVIDENCE = 資料或有效樣本不足
+SYNTHETIC_ENGINE_TEST_NOT_PERFORMANCE = 合成資料工程測試，不是獲利證據
+
+V21.4 additions (new research hypotheses, not proven alpha)
+residual_momentum20: Sum of last 20 observed log returns after subtracting each stock's prior rolling beta times 0050 log return.
+residual_momentum60: Same definition over 60 sessions.
+residual_lowvol60: Negative 60-session standard deviation of these prior-beta residuals.
+amount_acceleration: log(mean actual traded TWD amount over 20 sessions / mean over 120 sessions).
+benchmark_beta120: Diagnostic only. Prior-day rolling 120-session beta, at least 108 paired observations; not a candidate factor.
+
+[V22新增]
+ks_double_bottom = 雙重底/W底結構代理：前後低點接近、中間有反彈、目前從近期低點回升。
+ks_double_top_risk = 雙重頂/M頭風險代理：前後高點接近、中間有回落、目前自近期高點回落；主要用作剔除風險。
+ks_capitulation_reversal = 投降後反轉代理：先有明顯回撤與成交升溫，再要求5日價格止穩回升。
+ks_cold_resilience = 低熱度韌性：價格仍有正向表現，但近期成交熱度相對120日沒有過度擴張。
+
+上述均為本專案量化代理，不是原書公式、持有人身分識別、淨資金流或宏觀貨幣供給。

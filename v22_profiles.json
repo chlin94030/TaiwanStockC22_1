@@ -1,0 +1,155 @@
+{
+  "schema": 2,
+  "candidates": [
+    {
+      "name": "K22_book_heavy_core",
+      "stage_weights": {
+        "A1": {
+          "ks_confirmed_recovery": 0.3,
+          "ks_double_bottom": 0.25,
+          "ks_absorption": 0.25,
+          "residual_lowvol60": 0.2
+        },
+        "A2": {
+          "residual_momentum20": 0.3,
+          "trend_eff60": 0.25,
+          "ks_patience": 0.25,
+          "ks_demand_balance": 0.2
+        },
+        "B3": {
+          "ks_capitulation_reversal": 0.3,
+          "ks_double_bottom": 0.3,
+          "reversal5": 0.2,
+          "ks_absorption": 0.2
+        }
+      },
+      "stage_exposure": {
+        "A1": 1.0,
+        "A2": 0.85,
+        "A3": 0.0,
+        "B1": 0.0,
+        "B2": 0.0,
+        "B3": 0.6,
+        "UNKNOWN": 0.0
+      },
+      "discipline": true
+    },
+    {
+      "name": "K22_contrarian_heavy",
+      "stage_weights": {
+        "A1": {
+          "ks_double_bottom": 0.35,
+          "ks_confirmed_recovery": 0.3,
+          "ks_absorption": 0.2,
+          "residual_lowvol60": 0.15
+        },
+        "A2": {
+          "ks_patience": 0.35,
+          "residual_momentum20": 0.3,
+          "ks_quiet_strength": 0.2,
+          "ks_demand_balance": 0.15
+        },
+        "B3": {
+          "ks_capitulation_reversal": 0.4,
+          "ks_double_bottom": 0.3,
+          "ks_absorption": 0.2,
+          "reversal5": 0.1
+        }
+      },
+      "stage_exposure": {
+        "A1": 1.0,
+        "A2": 0.75,
+        "A3": 0.0,
+        "B1": 0.0,
+        "B2": 0.0,
+        "B3": 0.75,
+        "UNKNOWN": 0.0
+      },
+      "discipline": true
+    },
+    {
+      "name": "K22_trend_patience",
+      "stage_weights": {
+        "A1": {
+          "ks_confirmed_recovery": 0.25,
+          "residual_momentum20": 0.25,
+          "ks_absorption": 0.25,
+          "ks_double_bottom": 0.25
+        },
+        "A2": {
+          "residual_momentum60": 0.3,
+          "trend_eff60": 0.25,
+          "ks_patience": 0.25,
+          "ks_quiet_strength": 0.2
+        },
+        "B3": {
+          "ks_capitulation_reversal": 0.3,
+          "ks_confirmed_recovery": 0.3,
+          "ks_double_bottom": 0.25,
+          "residual_lowvol60": 0.15
+        }
+      },
+      "stage_exposure": {
+        "A1": 0.9,
+        "A2": 1.0,
+        "A3": 0.0,
+        "B1": 0.0,
+        "B2": 0.0,
+        "B3": 0.5,
+        "UNKNOWN": 0.0
+      },
+      "discipline": true
+    },
+    {
+      "name": "K22_no_stage_control",
+      "stage_weights": {
+        "A1": {
+          "residual_momentum20": 0.35,
+          "trend_eff60": 0.25,
+          "downside60": 0.2,
+          "ks_demand_balance": 0.2
+        },
+        "A2": {
+          "residual_momentum20": 0.35,
+          "trend_eff60": 0.25,
+          "downside60": 0.2,
+          "ks_demand_balance": 0.2
+        },
+        "B3": {
+          "residual_momentum20": 0.35,
+          "trend_eff60": 0.25,
+          "downside60": 0.2,
+          "ks_demand_balance": 0.2
+        },
+        "A3": {
+          "residual_momentum20": 0.35,
+          "trend_eff60": 0.25,
+          "downside60": 0.2,
+          "ks_demand_balance": 0.2
+        },
+        "B1": {
+          "residual_momentum20": 0.35,
+          "trend_eff60": 0.25,
+          "downside60": 0.2,
+          "ks_demand_balance": 0.2
+        },
+        "B2": {
+          "residual_momentum20": 0.35,
+          "trend_eff60": 0.25,
+          "downside60": 0.2,
+          "ks_demand_balance": 0.2
+        }
+      },
+      "stage_exposure": {
+        "A1": 1.0,
+        "A2": 1.0,
+        "A3": 1.0,
+        "B1": 1.0,
+        "B2": 1.0,
+        "B3": 1.0,
+        "UNKNOWN": 0.0
+      },
+      "discipline": false
+    }
+  ]
+}

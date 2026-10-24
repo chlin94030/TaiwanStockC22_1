@@ -1,0 +1,48 @@
+Alpha Radar V21.1 - Streamlit Cloud Python 3.14 deployment fix
+===============================================================
+
+Your logs showed:
+  Using Python 3.14.8 environment at /home/adminuser/venv
+  Resolved 48 packages in 578ms
+  No Streamlit app.py execution message yet.
+
+The original requirements pinned pandas==2.2.3 and streamlit==1.50.0.
+These predate Python 3.14 support, and pandas 2.2.3 has no CPython 3.14
+binary wheel. Installing it may fall back to slow or failing source builds.
+Older Streamlit releases also placed a pyarrow cap incompatible with
+Python 3.14 wheels. The corrected requirements use:
+
+  numpy==2.3.5
+  pandas==2.3.3
+  requests==2.32.5
+  streamlit==1.52.2
+  pyarrow==22.0.0
+  yfinance==0.2.66
+
+QUICK FIX - keep your existing Streamlit app and Python 3.14.8:
+1. In your repository main branch, replace only requirements.txt with the
+   file in this hotfix ZIP. Do not put it in a nested directory.
+2. Commit the file to GitHub. Streamlit Cloud detects dependency changes
+   and performs a new installation. Allow it to complete.
+3. In Manage app > Logs, look for successful installation AND
+   'Starting Streamlit server' / running app rather than stopping at uv.
+4. If errors persist, open Manage app > Logs > download full log and inspect
+   the FIRST error after dependency resolution and send it for diagnosis.
+
+NEVER delete data/ or your secrets to perform this fix. Cloud's writable
+filesystem can be ephemeral, though; GitHub commits alone do not guarantee
+that data/ is durable across a Cloud reboot.
+
+Important distinctions:
+- A screen saying "Your app is in the oven" is a deployment/startup screen,
+  not evidence the model is performing the 2,000-stock historical backtest.
+- Once the app opens, full-market downloading can require HOURS at free API
+  limits. That is separate from dependency installation.
+- A 10-minute hang while installing dependencies can have other causes;
+  the screenshot does not contain a conclusive exception traceback.
+- No investment-strategy weights, dataset, seeds or backtest rules were
+  changed by this compatibility fix.
+
+Verification performed here: project Python 3.13 code regression, Python
+compile, ZIP CRC and pin/wheel metadata checks. Actual Python 3.14 +
+Streamlit Cloud deployment not exercised in this offline runtime.

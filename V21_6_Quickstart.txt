@@ -1,0 +1,32 @@
+Alpha Radar V21.6｜Bulk-first Data Layer 快速操作
+
+目的
+- 母池規則與選股模型不變；只重構資料取得。
+- 有 FinLab 伺服器憑證時，不再對約 2,000 檔逐檔呼叫 FinMind。
+- 母池建立後，只為歷史母池聯集保存完整日線；策略調權重繼續使用 V21.5 固定母池工作台與快取。
+
+推薦模式
+1. Streamlit / GitHub Secrets 設定三個 FinLab 憑證：
+   FINLAB_REFRESH_TOKEN
+   FINLAB_SESSION_ID
+   FINLAB_API_KEY
+   這三個值請在自己的本機依 FinLab 官方登入流程產生，不要貼到聊天或 commit 到 GitHub。
+2. 歷史資料傳輸選 AUTO。
+3. AUTO 有完整 FinLab 權限：使用整表成交金額建立母池；再整表抓價格，只保留母池聯集。
+4. FinLab 權限不足／資料截止日太舊：AUTO 會安全 fallback 到 FinMind；強制 FINLAB_BULK 則直接停止，不會混用不完整資料。
+5. 只有 FinMind：程式會讀 user_info 的 api_request_limit，取設定比例（預設 90%）作安全節流，不再固定 520 次/小時。
+
+GitHub Actions
+- 原 .github/workflows/v21-background.yml 已加入三個 FinLab Secret 環境變數。
+- 若未設定，值為空，AUTO 自動走 FinMind。
+- 原 FINMIND_TOKEN 仍可保留。
+
+更新
+- 由 V21.5 升級請保留 data/、Secrets、Actions artifacts。
+- 不需要刪除已下載的 SQLite 快取。
+- 已完成並固定的母池策略實驗不因資料傳輸版本升級自動變成新證據。
+
+重要限制
+- FinLab 免費權限可能只提供較舊資料。V21.6 會檢查資料是否覆蓋設定的 start/end；不完整就停止或 AUTO fallback。
+- FinLab bulk 是資料傳輸加速，不是新因子，也不會讓舊回測績效變好。
+- 目前仍使用「現行官方名冊」作 current-snapshot 診斷；除非匯入歷史 membership，倖存者偏差限制仍在。

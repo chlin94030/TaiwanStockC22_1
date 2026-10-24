@@ -1,0 +1,22 @@
+Alpha Radar V21.3 | evidence-guarded selection
+
+Use the patch only on the standalone V21.2 repository, not V20.3.1.
+Overwrite matching source paths from the ZIP. Keep app.py as entrypoint.
+Do NOT delete data/, clear the price cache, or publish your FinMind token.
+
+Read V21_3_EVIDENCE_REVIEW.txt for the uploaded run's existing outcome
+metrics. That review does not recompute or improve the final-tail returns.
+
+V21.3 lets 0050 win against weak research portfolios during training and
+separates stock candidate selection from evidence for active deployment.
+It reports by-date factor coverage and unidentifiable Top-N pool outcomes.
+There is no automatic model trading or forced post-test weight tuning.
+
+An external background GitHub Actions worker is still required for browser-
+independent download. Code changes create a new study ID but reuse downloaded
+SQLite price data where it survives across restarts and artifacts. A full
+market-data rerun may be needed for NEW factor weighting evaluation; the
+provided summary ZIP alone does not contain OHLC records.
+
+Tests run in container are headless engineering tests, not real-market alpha
+validation or a live Cloud browser test.

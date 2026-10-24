@@ -1,0 +1,56 @@
+﻿Alpha Radar V21.2 | 續傳與真正背景下載
+
+重要：這是V21獨立研究室的修正，不是V20選股系統修正包。不改母池數、因子選擇預算或研究門檻。
+
+一、畫面上的問題
+BLOCKED | AMOUNT / OHLC high mismatch 是價格欄位檢查中止，不能直接歸因關閉網頁。
+已儲存的前26檔若仍在原主機data裡，更新后仍可沿用，不需手動刪除。
+修正後不合理OHLC列會留下原值記錄並排除其可交易價格，仍保留有效的實際成交金額與股數。
+真正缺成交金額的股票會先記錄、繼續收集其他股票；所有量值收集完後仍有缺漏，研究就會明確停止，不會偷偷把股票移出母池。
+
+二、先修復目前的Streamlit版本
+1. 正在執行時先按暫停。將Patch解壓覆蓋V21.1的同名檔案，或使用完整包。入口維持app.py。
+2. 不要刪除data/與Streamlit Secrets。注意，主機重建自身仍可能清除暫存，不是程式能保證避免。
+3. 原任務是BLOCKED時，更新後按一次「啟動／繼續」；不會無限自動重試錯誤資料。
+4. 單純關閉手機不會由程式主動取消伺服器執行緒。若伺服器重啟而檔案仍在，再開頁面會恢復原本RUNNING/QUEUED/RETRY_WAIT的任務。
+5. 使用者已按暫停、BLOCKED或完成的任務，不會因重新開頁面而自動重跑。
+
+三、不需一直開網頁：GitHub Actions背景下載（建議）
+1. 將程式檔案放在原V21倉儲根目錄。工作流檔案必須放在：
+   .github/workflows/v21-background.yml
+   不能只放在根目錄。手機可在GitHub選Add file -> Create new file，檔名輸入上列完整路徑，貼上附檔YAML內容後Commit到main。
+2. 如已有FinMind Token，到該GitHub倉儲：
+   Settings -> Secrets and variables -> Actions -> New repository secret
+   名稱：FINMIND_TOKEN
+   值：你自己的Token。不要貼在程式碼或聊天裡。沒有Token仍可使用來源允許的免Token速率。
+   Streamlit的Secrets不會自動傳到GitHub Actions。
+3. 先暫停Streamlit的同一個下載任務，避免重複佔用配額。
+4. 到GitHub的Actions -> V21 Background Download and Research -> Run workflow。
+   一般seed_asset_id留空；只要按這一次，手機即可關閉。這是GitHub伺服器在執行，不是手機在下載。
+5. 系統每30分鐘做正常存檔交棒，上傳SQLite快照，下一個內部分段自動讀取繼續。最多32段、資料不完整或權限錯誤會停止，不會無限執行消耗額度。
+   這些是技術分段，不是新增S1/S2研究階段。完成後其餘分段只檢查狀態，不重跑研究。
+6. 如果GitHub機器突然被強制結束或使用者直接Cancel，最新尚未上傳的該段進度可能重下，但之前已上傳快照不受影響。
+7. 成功上傳後自動保留最新兩份快照，每份設定保留14天（仍受倉儲政策限制）。它不是永久備份，重要資料請另行留存。
+8. 使用前檢查GitHub運算時數與儲存配額。建議用私人倉儲保管資料，並遵守來源的資料授權與轉散限制。不保證私人倉儲全部用量免費。
+
+四、如何取回資料，不必經過手機長時間傳輸
+方式A：GitHub Actions任務頁的Artifacts取得最新v21-checkpoint-...。裡面有V21_DATABASE.zip與STATUS.txt；研究完成後也有REPORT.txt/results.json。
+方式B：Streamlit Secrets增加：
+GITHUB_REPOSITORY = "你的帳號/倉儲名稱"
+GITHUB_READ_TOKEN = "僅限這個倉儲Actions:read的GitHub精細權限Token"
+暫停本機任務後，按「從GitHub Actions直接同步最新資料」。資料是GitHub直接傳到Streamlit伺服器，不需經手機上傳。
+沒有存取權限、快照過期、壓縮內容不符或雜湊不符會停止，不會把錯誤內容當正常資料庫。
+手動上傳時請上傳內層V21_DATABASE.zip，不是GitHub包裝的外層ZIP。
+
+五、保留目前Streamlit已下載的26檔
+原Cloud快取不會自動出現在GitHub主機。要遷移時：
+1. 修正版頁面按暫停，再按「製作目前資料庫檢查點」下載V21_DATABASE.zip。
+2. 可保存在自己電腦，或上傳同一倉儲的GitHub Release作為資料附件。大型SQLite不要加入Git程式碼歷史。
+3. 舊快取導入Actions的進階方法：用GitHub同一倉儲的Releases API取得該附件的數字asset ID，Run workflow時填入seed_asset_id。需注意此功能僅在沒有遠端快照時使用，不會覆蓋較新遠端進度。
+   沒有做這個遷移步驟，Actions第一次會從自己的空快取開始，不會刪除原Streamlit的資料。
+
+六、測試範圍
+84項本機工程測試通過，包括OHLC錯誤重現、異常價格隔離、續跑不重抓、跨主機快照合併、損壞檔拒絕、工作鎖、停止後不自動重跑。
+已做Python編譯及YAML結構檢查。未在你的GitHub Actions或正式Streamlit Cloud實機部署，也沒有從真實FinMind取回1240出錯列確認其日期原因。
+來源文件明確提醒興櫃時期open可為前日均價，因此這是可能原因，不是本次已實證的個案原因。
+這次沒有新的獲利績效、母池最佳解或保證縮短完成時間。

@@ -1,0 +1,23 @@
+V21.4 - Robust Consensus Research Upgrade
+
+1. Safely pause the existing worker and back up data/ or your V21_DATABASE.zip.
+2. On V21.3, replace files using the Patch. Other versions: use the Full package.
+   Include config.json. Entry stays app.py. Keep requirements.txt unchanged.
+3. Do NOT delete data/, FINMIND_TOKEN or the existing GitHub Actions workflow.
+4. Run the existing V21 Background Download and Research workflow once.
+   Or use the Streamlit Start/Continue button, not both at the same time.
+5. Completed cached prices remain reusable. The same data start/end and frozen
+   roster are preserved where available; new factors and model results are
+   recomputed. This does not turn the exposed history into a new holdout.
+6. Read REPORT.txt; inspect the model's actual final-tail performance before
+   considering further use. No evidence -> no approved stock-alpha strategy.
+
+Main differences: 18 price/volume factors, stock-specific residual momentum,
+10 equal funded stock slots, full/recent training robustness, at most one
+bounded consensus weight proposal, repaired reference cost accounting, and
+analytical-only price quality recovery.
+
+New performance has NOT been measured on your real database here. This release
+is an implementable hypothesis with engineering tests, not a promise of profit.
+A report ZIP is not a database. If the host lost its prices, restore your own
+V21_DATABASE.zip or recover the existing Actions checkpoint first.

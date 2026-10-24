@@ -1,0 +1,369 @@
+{
+  "kind": "READ_ONLY_REASSESSMENT_OF_OLD_EXPOSED_REPORT",
+  "run_version": "21.0-universe-lab",
+  "existing_export_sha256_checked": true,
+  "model_weights_changed": false,
+  "new_returns_computed": false,
+  "new_independent_holdout": false,
+  "data_scope": {
+    "scope": "CURRENT_SNAPSHOT_DIAGNOSTIC",
+    "data_kind": "PROVIDER_HISTORY",
+    "whole_current_roster_count": 1984,
+    "historical_membership_verified": false,
+    "amount_source": "FinMind TaiwanStockPrice Trading_money",
+    "adjusted_price_source": "Yahoo via yfinance",
+    "source_independently_audited": false,
+    "monthly_union_count": 1097,
+    "feature_reference": "SAME_DATE_UNION_OF_ALL_PREREGISTERED_POOLS",
+    "price_revision_vintages_verified": false
+  },
+  "models": {
+    "5": {
+      "training_pool": "ADV300",
+      "training_candidate": "single_reversal5",
+      "training_weights": {
+        "reversal5": 1.0
+      },
+      "training_objective_pct": -0.81,
+      "training_excess_pct": -0.029,
+      "outer_oos_excess_pct": 0.176,
+      "final_tail_excess_pct": -3.339,
+      "final_tail_vs_pool_pct": -1.415,
+      "final_tail_95pct_block_lower_pct": -4.399,
+      "final_tail_known": 23,
+      "final_tail_planned": 24,
+      "final_tail_same_pool_known": 18,
+      "final_tail_nonoverlap_complete": 23,
+      "pre_tail_gate_reassessment_on_old_exposed_results": {
+        "status": "RESEARCH_CANDIDATE_NOT_PROMOTED",
+        "failed_checks": [
+          "NONPOSITIVE_TRAINING_OBJECTIVE",
+          "OUTER_EXTRA_COST_STRESS_NOT_POSITIVE",
+          "OUTER_FOLD_DIRECTION_UNSTABLE",
+          "TRAINING_COST_STRESS_NOT_ECONOMICALLY_POSITIVE",
+          "VERSUS_0050_BLOCK_95_NOT_POSITIVE",
+          "VERSUS_0050_INSUFFICIENT_MEAN_ALPHA",
+          "VERSUS_0050_NONOVERLAP_95_NOT_POSITIVE",
+          "VERSUS_SAME_POOL_INSUFFICIENT_COVERAGE"
+        ],
+        "required": {
+          "mean_excess_floor": 0.002,
+          "coverage_floor": 0.95,
+          "minimum_disjoint": 6,
+          "minimum_positive_fold_fraction": 0.6,
+          "training_min_positive_inner_blocks": 2,
+          "block_95_lower_gt_zero": 0.0
+        },
+        "outer_evaluated_folds": 7,
+        "outer_positive_folds": 4,
+        "outer_positive_fraction": 0.5714285714285714,
+        "source": "TRAIN_AND_OUTER_ONLY",
+        "final_tail_used": false,
+        "fallback": "REFERENCE_0050",
+        "automatic_orders_authorized": false
+      },
+      "economic_training_pool_equivalents_not_holding_proof": [
+        "ADV300"
+      ],
+      "most_frequent_holdings": [
+        [
+          "3081.TWO",
+          3
+        ],
+        [
+          "3363.TWO",
+          3
+        ],
+        [
+          "2408.TW",
+          3
+        ],
+        [
+          "3105.TWO",
+          2
+        ],
+        [
+          "6442.TW",
+          2
+        ]
+      ],
+      "original_verdict": "INSUFFICIENT_EVIDENCE"
+    },
+    "20": {
+      "training_pool": "ADV100",
+      "training_candidate": "single_liquidity20",
+      "training_weights": {
+        "liquidity20": 1.0
+      },
+      "training_objective_pct": 0.102,
+      "training_excess_pct": 1.166,
+      "outer_oos_excess_pct": 0.072,
+      "final_tail_excess_pct": -1.926,
+      "final_tail_vs_pool_pct": 0.197,
+      "final_tail_95pct_block_lower_pct": -4.622,
+      "final_tail_known": 23,
+      "final_tail_planned": 24,
+      "final_tail_same_pool_known": 22,
+      "final_tail_nonoverlap_complete": 17,
+      "pre_tail_gate_reassessment_on_old_exposed_results": {
+        "status": "RESEARCH_CANDIDATE_NOT_PROMOTED",
+        "failed_checks": [
+          "OUTER_EXTRA_COST_STRESS_NOT_POSITIVE",
+          "OUTER_FOLD_DIRECTION_UNSTABLE",
+          "VERSUS_0050_BLOCK_95_NOT_POSITIVE",
+          "VERSUS_0050_INSUFFICIENT_MEAN_ALPHA",
+          "VERSUS_0050_NONOVERLAP_95_NOT_POSITIVE",
+          "VERSUS_SAME_POOL_INSUFFICIENT_COVERAGE",
+          "VERSUS_SAME_POOL_NONOVERLAP_95_NOT_POSITIVE"
+        ],
+        "required": {
+          "mean_excess_floor": 0.002,
+          "coverage_floor": 0.95,
+          "minimum_disjoint": 6,
+          "minimum_positive_fold_fraction": 0.6,
+          "training_min_positive_inner_blocks": 2,
+          "block_95_lower_gt_zero": 0.0
+        },
+        "outer_evaluated_folds": 6,
+        "outer_positive_folds": 2,
+        "outer_positive_fraction": 0.3333333333333333,
+        "source": "TRAIN_AND_OUTER_ONLY",
+        "final_tail_used": false,
+        "fallback": "REFERENCE_0050",
+        "automatic_orders_authorized": false
+      },
+      "economic_training_pool_equivalents_not_holding_proof": [
+        "ADV100",
+        "ADV200",
+        "ADV300",
+        "ADV500"
+      ],
+      "most_frequent_holdings": [
+        [
+          "2330.TW",
+          24
+        ],
+        [
+          "2454.TW",
+          20
+        ],
+        [
+          "2317.TW",
+          16
+        ],
+        [
+          "3661.TW",
+          10
+        ],
+        [
+          "2408.TW",
+          10
+        ]
+      ],
+      "original_verdict": "INSUFFICIENT_EVIDENCE"
+    },
+    "60": {
+      "training_pool": "ADV200",
+      "training_candidate": "sparse_53",
+      "training_weights": {
+        "liquidity20": 0.4,
+        "momentum20": 0.4,
+        "rsi_recovery": 0.2
+      },
+      "training_objective_pct": 3.586,
+      "training_excess_pct": 5.205,
+      "outer_oos_excess_pct": 0.629,
+      "final_tail_excess_pct": -0.179,
+      "final_tail_vs_pool_pct": 2.03,
+      "final_tail_95pct_block_lower_pct": -8.463,
+      "final_tail_known": 22,
+      "final_tail_planned": 24,
+      "final_tail_same_pool_known": 20,
+      "final_tail_nonoverlap_complete": 7,
+      "pre_tail_gate_reassessment_on_old_exposed_results": {
+        "status": "RESEARCH_CANDIDATE_NOT_PROMOTED",
+        "failed_checks": [
+          "OUTER_FOLD_DIRECTION_UNSTABLE",
+          "VERSUS_0050_BLOCK_95_NOT_POSITIVE",
+          "VERSUS_0050_NONOVERLAP_95_NOT_POSITIVE",
+          "VERSUS_SAME_POOL_BLOCK_95_NOT_POSITIVE",
+          "VERSUS_SAME_POOL_INSUFFICIENT_COVERAGE",
+          "VERSUS_SAME_POOL_NONOVERLAP_95_NOT_POSITIVE"
+        ],
+        "required": {
+          "mean_excess_floor": 0.002,
+          "coverage_floor": 0.95,
+          "minimum_disjoint": 6,
+          "minimum_positive_fold_fraction": 0.6,
+          "training_min_positive_inner_blocks": 2,
+          "block_95_lower_gt_zero": 0.0
+        },
+        "outer_evaluated_folds": 6,
+        "outer_positive_folds": 3,
+        "outer_positive_fraction": 0.5,
+        "source": "TRAIN_AND_OUTER_ONLY",
+        "final_tail_used": false,
+        "fallback": "REFERENCE_0050",
+        "automatic_orders_authorized": false
+      },
+      "economic_training_pool_equivalents_not_holding_proof": [
+        "ADV200"
+      ],
+      "most_frequent_holdings": [
+        [
+          "2344.TW",
+          5
+        ],
+        [
+          "2454.TW",
+          4
+        ],
+        [
+          "2408.TW",
+          4
+        ],
+        [
+          "3019.TW",
+          3
+        ],
+        [
+          "4979.TWO",
+          3
+        ]
+      ],
+      "original_verdict": "INSUFFICIENT_EVIDENCE"
+    }
+  },
+  "factor_coverage": [
+    {
+      "factor": "high252",
+      "coverage_pct": 50.32
+    },
+    {
+      "factor": "trend_eff60",
+      "coverage_pct": 86.82
+    },
+    {
+      "factor": "downside60",
+      "coverage_pct": 86.82
+    },
+    {
+      "factor": "breakout20",
+      "coverage_pct": 96.118
+    },
+    {
+      "factor": "money_flow20",
+      "coverage_pct": 97.233
+    },
+    {
+      "factor": "pullback20",
+      "coverage_pct": 97.233
+    },
+    {
+      "factor": "momentum120_skip20",
+      "coverage_pct": 97.416
+    },
+    {
+      "factor": "momentum20",
+      "coverage_pct": 98.687
+    },
+    {
+      "factor": "momentum60",
+      "coverage_pct": 99.716
+    },
+    {
+      "factor": "reversal5",
+      "coverage_pct": 99.796
+    },
+    {
+      "factor": "macd_acceleration",
+      "coverage_pct": 99.86
+    },
+    {
+      "factor": "rsi_recovery",
+      "coverage_pct": 99.953
+    },
+    {
+      "factor": "liquidity20",
+      "coverage_pct": 100.0
+    },
+    {
+      "factor": "volume_impulse",
+      "coverage_pct": 100.0
+    }
+  ],
+  "pool_control_completeness": [
+    {
+      "horizon": "5",
+      "pool": "ADV100",
+      "comparable_pool_dates": 61,
+      "preholdout_dates": 66
+    },
+    {
+      "horizon": "5",
+      "pool": "ADV200",
+      "comparable_pool_dates": 57,
+      "preholdout_dates": 66
+    },
+    {
+      "horizon": "5",
+      "pool": "ADV300",
+      "comparable_pool_dates": 49,
+      "preholdout_dates": 66
+    },
+    {
+      "horizon": "5",
+      "pool": "ADV500",
+      "comparable_pool_dates": 14,
+      "preholdout_dates": 66
+    },
+    {
+      "horizon": "20",
+      "pool": "ADV100",
+      "comparable_pool_dates": 62,
+      "preholdout_dates": 65
+    },
+    {
+      "horizon": "20",
+      "pool": "ADV200",
+      "comparable_pool_dates": 56,
+      "preholdout_dates": 65
+    },
+    {
+      "horizon": "20",
+      "pool": "ADV300",
+      "comparable_pool_dates": 49,
+      "preholdout_dates": 65
+    },
+    {
+      "horizon": "20",
+      "pool": "ADV500",
+      "comparable_pool_dates": 13,
+      "preholdout_dates": 65
+    },
+    {
+      "horizon": "60",
+      "pool": "ADV100",
+      "comparable_pool_dates": 60,
+      "preholdout_dates": 63
+    },
+    {
+      "horizon": "60",
+      "pool": "ADV200",
+      "comparable_pool_dates": 56,
+      "preholdout_dates": 63
+    },
+    {
+      "horizon": "60",
+      "pool": "ADV300",
+      "comparable_pool_dates": 47,
+      "preholdout_dates": 63
+    },
+    {
+      "horizon": "60",
+      "pool": "ADV500",
+      "comparable_pool_dates": 11,
+      "preholdout_dates": 63
+    }
+  ]
+}

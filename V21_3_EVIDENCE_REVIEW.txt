@@ -1,0 +1,68 @@
+Alpha Radar V21.3: read-only review of existing V21.2 evidence
+Integrity: source export hashes checked.
+NOT a new alpha validation. Original final-tail outcomes remain exposed.
+No new winning weights inferred from the final tail.
+
+[5 trading sessions]
+Old research candidate: ADV300 / single_reversal5
+Weights: {"reversal5": 1.0}
+Train vs 0050: -0.029%
+Outer OOS vs 0050: 0.176%
+Old final tail vs 0050: -3.339%
+Old final tail vs own pool: -1.415%
+Known tail vs 0050: 23/24
+Known tail vs same pool: 18/24
+Gate using training + outer only: RESEARCH_CANDIDATE_NOT_PROMOTED
+Gate blockers: NONPOSITIVE_TRAINING_OBJECTIVE, OUTER_EXTRA_COST_STRESS_NOT_POSITIVE, OUTER_FOLD_DIRECTION_UNSTABLE, TRAINING_COST_STRESS_NOT_ECONOMICALLY_POSITIVE, VERSUS_0050_BLOCK_95_NOT_POSITIVE, VERSUS_0050_INSUFFICIENT_MEAN_ALPHA, VERSUS_0050_NONOVERLAP_95_NOT_POSITIVE, VERSUS_SAME_POOL_INSUFFICIENT_COVERAGE
+Economically indistinguishable training pool outcomes: ADV300
+Repeated holdings: [('3081.TWO', 3), ('3363.TWO', 3), ('2408.TW', 3), ('3105.TWO', 2), ('6442.TW', 2)]
+
+[20 trading sessions]
+Old research candidate: ADV100 / single_liquidity20
+Weights: {"liquidity20": 1.0}
+Train vs 0050: 1.166%
+Outer OOS vs 0050: 0.072%
+Old final tail vs 0050: -1.926%
+Old final tail vs own pool: 0.197%
+Known tail vs 0050: 23/24
+Known tail vs same pool: 22/24
+Gate using training + outer only: RESEARCH_CANDIDATE_NOT_PROMOTED
+Gate blockers: OUTER_EXTRA_COST_STRESS_NOT_POSITIVE, OUTER_FOLD_DIRECTION_UNSTABLE, VERSUS_0050_BLOCK_95_NOT_POSITIVE, VERSUS_0050_INSUFFICIENT_MEAN_ALPHA, VERSUS_0050_NONOVERLAP_95_NOT_POSITIVE, VERSUS_SAME_POOL_INSUFFICIENT_COVERAGE, VERSUS_SAME_POOL_NONOVERLAP_95_NOT_POSITIVE
+Economically indistinguishable training pool outcomes: ADV100, ADV200, ADV300, ADV500
+Repeated holdings: [('2330.TW', 24), ('2454.TW', 20), ('2317.TW', 16), ('3661.TW', 10), ('2408.TW', 10)]
+
+[60 trading sessions]
+Old research candidate: ADV200 / sparse_53
+Weights: {"liquidity20": 0.4, "momentum20": 0.4, "rsi_recovery": 0.2}
+Train vs 0050: 5.205%
+Outer OOS vs 0050: 0.629%
+Old final tail vs 0050: -0.179%
+Old final tail vs own pool: 2.03%
+Known tail vs 0050: 22/24
+Known tail vs same pool: 20/24
+Gate using training + outer only: RESEARCH_CANDIDATE_NOT_PROMOTED
+Gate blockers: OUTER_FOLD_DIRECTION_UNSTABLE, VERSUS_0050_BLOCK_95_NOT_POSITIVE, VERSUS_0050_NONOVERLAP_95_NOT_POSITIVE, VERSUS_SAME_POOL_BLOCK_95_NOT_POSITIVE, VERSUS_SAME_POOL_INSUFFICIENT_COVERAGE, VERSUS_SAME_POOL_NONOVERLAP_95_NOT_POSITIVE
+Economically indistinguishable training pool outcomes: ADV200
+Repeated holdings: [('2344.TW', 5), ('2454.TW', 4), ('2408.TW', 4), ('3019.TW', 3), ('4979.TWO', 3)]
+
+[Observed factor availability]
+high252: 50.32%
+trend_eff60: 86.82%
+downside60: 86.82%
+breakout20: 96.118%
+money_flow20: 97.233%
+pullback20: 97.233%
+momentum120_skip20: 97.416%
+momentum20: 98.687%
+momentum60: 99.716%
+reversal5: 99.796%
+macd_acceleration: 99.86%
+rsi_recovery: 99.953%
+liquidity20: 100.0%
+volume_impulse: 100.0%
+
+[Boundaries]
+Current-roster survivorship bias remains.
+Same-pool comparison is incomplete when even one member has an unknown exit.
+An always-0050 reference has zero excess BY DEFINITION, not earned alpha.
+No factor weight can be honestly claimed optimal from this aggregate export.

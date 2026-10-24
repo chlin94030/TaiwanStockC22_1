@@ -1,0 +1,24 @@
+Alpha Radar V22.1 Fast Bootstrap
+
+If your screen says FinMind 260/h and ~7.6 hours, you are still running the old slow per-stock provider path.
+
+Upgrade procedure:
+1. Safely pause the current running job. Do NOT delete data/.
+2. Back up data/ or your database checkpoint.
+3. Apply the V22.1 patch (if current repo is V22.0) or use the full V22.1 package.
+4. Keep app.py as the Streamlit entry point.
+5. Open the data-source control and select:
+   AUTO_FAST — recommended for fast development.
+6. Start/continue. Without FinLab credentials, AUTO_FAST now uses Yahoo multi-ticker batches instead of silently starting FinMind ~7h mode.
+
+Provider choices:
+- AUTO_FAST: FinLab exact if usable; otherwise Yahoo batch proxy. No silent FinMind fallback.
+- YAHOO_FAST: fastest free development bootstrap; turnover is proxy, not official amount.
+- OFFICIAL_BULK: free exact turnover via TWSE+TPEx whole-market daily history; slower than Yahoo but normally far fewer wait hours than FinMind per-stock mode.
+- FINLAB_BULK: exact bulk when configured.
+- FINMIND: explicit slow per-stock fallback only.
+
+Suggested workflow:
+FAST DEVELOPMENT -> freeze pool/model hypothesis -> ONE EXACT CONFIRMATION.
+
+Read V22_1_FAST_BOOTSTRAP.md for details and limitations.

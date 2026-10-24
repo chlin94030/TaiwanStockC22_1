@@ -1,0 +1,59 @@
+{
+  "source_file": "LAB_REPORT (1).txt",
+  "source_sha256": "532be24d0ce44938ed29d1560791091be52443c9abd35af39ed7c7227adadbd8",
+  "source_scope": "CURRENT_SNAPSHOT_DIAGNOSTIC",
+  "source_report_only_not_new_price_data": true,
+  "observations": {
+    "5d": {
+      "strategy": "REFERENCE_0050",
+      "tail_excess": 0.0,
+      "reported_stock_stress": -0.005,
+      "correct_extra_stock_stress_for_identical_reference": 0.0,
+      "not_stock_alpha": true
+    },
+    "20d": {
+      "candidate": "single_liquidity20",
+      "pool": "ADV100",
+      "training_equivalent_pools": [
+        "ADV100",
+        "ADV200",
+        "ADV300",
+        "ADV500"
+      ],
+      "outer_excess": -0.0105,
+      "tail_excess": -0.0193,
+      "candidate_promoted": false
+    },
+    "60d": {
+      "candidate": "sparse_53",
+      "pool": "ADV200",
+      "weights": {
+        "liquidity20": 0.4,
+        "momentum20": 0.4,
+        "rsi_recovery": 0.2
+      },
+      "outer_excess": 0.0063,
+      "tail_excess": -0.0018,
+      "tail_same_pool_excess": 0.0203,
+      "tail_block95_low": -0.0846,
+      "tail_cases": 22,
+      "tail_planned": 24,
+      "candidate_promoted": false
+    }
+  },
+  "original_report_unchanged": true,
+  "new_real_market_returns_computed": false,
+  "v214": {
+    "new_features": [
+      "residual_momentum20",
+      "residual_momentum60",
+      "residual_lowvol60",
+      "amount_acceleration"
+    ],
+    "funded_slots": 10,
+    "static_candidates": 64,
+    "max_extra_consensus_per_freeze": 1,
+    "no_threshold_relaxation_to_pass_old_tail": true,
+    "new_hypotheses_not_yet_economically_verified": true
+  }
+}
